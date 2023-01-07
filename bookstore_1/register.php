@@ -15,18 +15,19 @@ if(isset($_POST['Submit'])){
    $select_users = mysqli_query($conn, "SELECT * FROM `user` WHERE Email = '$Email'") or die('query failed');
 
    if(mysqli_num_rows($select_users) > 0){
-     $message[] = 'user already exist!';
+      $message[] = 'user already exist!';
    } else {
-     if($Ppassword != $Cpassword){
-       $message[] = 'confirm password not matched!';
-     } else {
-       // insert new user into the database
-       mysqli_query($conn, "INSERT INTO `user`(Username, Email, Phno, Ppassword, gender) VALUES('$Username', '$Email', '$Phno', '$Cpassword', '$gender')") or die('query failed');
-       $message[] = 'registered successfully!';
-       header('location:login.php');
-     }
+      if($Ppassword != $Cpassword){
+         $message[] = 'confirm password not matched!';
+      } else {
+         // insert new user into the database
+         mysqli_query($conn, "INSERT INTO `user`(Username, Email, Phno, Ppassword, gender) VALUES('$Username', '$Email', '$Phno', '$Cpassword', '$gender')") or die('query failed');
+         $message[] = 'registered successfully!';
+         header('location:login.php');
+      }
    }
 
+}
 
 ?>
 

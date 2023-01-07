@@ -1,0 +1,433 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(3, 3, 17);
+}
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: rgb(3, 3, 17);
+    flex-direction: row;
+}
+.content{
+    position: relative;
+    max-width: 43rem;
+    width: 100%;
+    background: #1c1c1c;
+    /*padding: 1.2rem 1.7rem;*/
+    overflow: hidden;
+    z-index: 10;
+}
+.card{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1.7rem;
+}
+.content .ab:nth-child(1){
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent, rgb(0, 245, 61));
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+.content .ab:nth-child(2){
+    position: absolute;
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,rgb(0, 245, 61));
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2 {
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+.content .ab:nth-child(3){
+    position: absolute;
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,rgb(0, 245, 61));
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes animate3 {
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+.content .ab:nth-child(4){
+    position: absolute;
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,rgb(0, 245, 61));
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4 {
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+
+
+.content form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h2{
+    color: rgb(0, 245, 61);
+    font-family: candara ;
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+}
+form .user-details .input-box{
+    margin: 20px 0 12px 0;
+    width: calc(100% / 2 - 20px);
+    position: relative;
+}
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    border: transparent;
+    background: transparent;
+}
+.inputbox{
+    position: relative;
+    width: 100%;
+    background: transparent;
+    border:none;
+    margin: 6px 0;
+    height: 32px;
+    border-radius: 10px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    z-index: 10;
+    font-family: candara;
+    font-weight: 900;
+    font-size: large;
+}
+.input-box{
+    position: relative;
+}
+.input-box .details{
+    position: absolute;
+    left: 0;
+    padding: 14px 0px 10px;
+    font-size: 1.1rem;
+    color: #d6d6d6;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    font-family: Candara;
+}
+.input-box .inputbox:valid ~ .details,
+.input-box .inputbox:focus ~ .details{
+    color: rgb(0, 245, 61);
+    transform: translateX(-1px) translateY(-34px);
+    font-size: 0.97em;
+}
+.input-box i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 98%;
+    height: 2px;
+    transition: 0.5s;
+    pointer-events: none;
+    border-radius: 8px;
+    background: rgb(0, 245, 61);
+    z-index: 9;
+}
+.input-box .inputbox:valid ~ i,
+.input-box .inputbox:focus ~ i{
+    height: 53px;
+}
+
+.gender-details{
+    margin-top: 1.8rem;
+}
+.gen-title{
+    font-size: 24px;
+    font-weight: 500;
+    color: #d6d6d6;
+    font-family: candara;
+}
+
+form .gender-details .category{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: 14px 0;
+}
+form .gender-details .category .gender{
+    color:#d6d6d6;
+    font-size: 20px;
+    font-weight: 440;
+    font-family: candara;
+}
+.gender-details .category label{
+    display: flex;
+    align-items: center;
+}
+.gender-details .category .dot{
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+    border-color: #d9d9d9;
+    background: rgb(0, 245, 61);
+}
+form input[type="radio"]{
+    display: none;
+}
+
+
+button{
+    width: 100%;
+    background-color: #131314;
+    border: transparent;
+    margin: 12px 0 10px;
+    height: 42px;
+    font-size: 20px;
+    font-family: candara;
+    border-radius: 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    outline: none;
+    color: rgb(0, 245, 61);
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    font-weight: 550;
+}
+
+button:hover{
+    color: black;
+    background-color: rgb(0, 245, 61);
+    box-shadow: 0 0 10px rgb(0, 245, 61), 0 0 40px rgb(0, 245, 61), 0 0 80px rgb(0, 245, 61);
+    font-weight: 550;
+    text-shadow: 0 0 10px black;
+}
+button span{
+    position: absolute;
+    display: block;
+}
+button span:nth-child(1){
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent, rgb(0, 245, 61));
+    animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+    0%{
+        left: -100%;
+    }
+    50%,100%{
+        left: 100%;
+    }
+}
+button span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,rgb(0, 245, 61));
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+@keyframes animate2 {
+    0%{
+        top: -100%;
+    }
+    50%,100%{
+        top: 100%;
+    }
+}
+button span:nth-child(3){
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,rgb(0, 245, 61));
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes animate3 {
+    0%{
+        right: -100%;
+    }
+    50%,100%{
+        right: 100%;
+    }
+}
+button span:nth-child(4){
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg,transparent,rgb(0, 245, 61));
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+@keyframes animate4 {
+    0%{
+        bottom: -100%;
+    }
+    50%,100%{
+        bottom: 100%;
+    }
+}
+
+.eye{
+    position: absolute;
+    z-index: 10;
+}
+.aac{
+    margin-left: -37px;
+    margin-top: 22px;
+    color: #837777;
+    font-size: 20px;
+}
+#hide1{
+    display: none;
+}
+#hide3{
+    display: none;
+}
+
+#showerror{
+    margin-right: 287px;
+}
+
+p{
+    color: #d6d6d6;
+    font-family: candara;
+    font-size: 18px;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+p a{
+    color: rgb(194, 194, 194);
+    font-size: 18px;
+    font-family: candara;
+    text-decoration: none;
+}
+.card a{
+    color: rgb(194, 194, 194);
+    font-size: 18px;
+    font-family: candara;
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(0, 245, 61);
+    text-shadow: 2px rgb(0, 245, 61);
+}
+.message{
+    position: sticky;
+    top:0;
+    margin: 0px auto;
+    /*margin-top: -620px;*/
+    max-width: 1200px;
+    background-color: white;
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10000;
+    gap:1.5rem;
+ }
+ 
+ .message span{
+    font-size: 2rem;
+    color:black;
+ }
+ 
+ .message .i{
+    cursor: pointer;
+    color: red;
+    font-size: 2.5rem;
+ }
+ 
+ .message .i:hover{
+    transform: rotate(55deg);
+ }
+
+
+
+@media (max-width:584px){
+    .content{
+        max-width: 96%;
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    form .gender-details .category{
+        width: 100%;
+        flex-direction: column;
+    }
+    .content form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+    #showerror{
+        margin-right: 66px;    }
+    
+}
+
+
+
+
+
+
+
+
+
+
